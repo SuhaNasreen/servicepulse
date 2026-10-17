@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ServicePulse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="hero">
+            <p class="eyebrow">Containerized operations demo</p>
+            <div class="title-row">
+                <h1>ServicePulse</h1>
+                <span class="version">Version 2</span>
+            </div>
+            <p class="subtitle">A static status dashboard packaged with Docker and orchestrated by Kubernetes.</p>
+        </header>
+
+        <section class="status-grid" aria-label="Service status">
+            <article class="status-card">
+                <span class="indicator" aria-hidden="true"></span>
+                <div>
+                    <h2>API Gateway</h2>
+                    <p>Operational</p>
+                </div>
+            </article>
+            <article class="status-card">
+                <span class="indicator" aria-hidden="true"></span>
+                <div>
+                    <h2>Orders Service</h2>
+                    <p>Operational</p>
+                </div>
+            </article>
+            <article class="status-card">
+                <span class="indicator" aria-hidden="true"></span>
+                <div>
+                    <h2>Notifications</h2>
+                    <p>Operational</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="panel">
+            <p class="release">Rolling update complete</p>
+            <h2>Deployment story</h2>
+            <ul>
+                <li>Packaged as versioned Docker images</li>
+                <li>Exposed through a stable Kubernetes Service</li>
+                <li>Scaled and restored through declared desired state</li>
+            </ul>
+        </section>
+
+        <footer>Served by nginx inside Kubernetes</footer>
+    </main>
+</body>
+
+</html>

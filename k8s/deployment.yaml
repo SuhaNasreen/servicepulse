@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servicepulse
+  labels:
+    app: servicepulse
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: servicepulse
+  template:
+    metadata:
+      labels:
+        app: servicepulse
+    spec:
+      containers:
+        - name: servicepulse
+          image: servicepulse:v2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+  

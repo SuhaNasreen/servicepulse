@@ -123,3 +123,19 @@ Add HTTP health probes and container CPU and memory requests and limits.
 ### Next improvement
 
 Add HTTP health probes and container CPU and memory requests and limits.
+
+## Troubleshooting
+
+- If `docker` is unavailable in Ubuntu, enable Docker Desktop WSL integration for Ubuntu.
+- If kubectl cannot connect, confirm the Docker Desktop cluster is running, select the `docker-desktop` context, and rerun `kubectl cluster-info`.
+- If a Pod reports `ImagePullBackOff`, verify that the manifest uses the same versioned image tag that was built locally and that the cluster uses the Kubeadm provisioner.
+- If port 8080 is busy, use `kubectl port-forward service/servicepulse 8081:80` and visit `http://localhost:8081`.
+
+## Cleanup
+
+```bash
+kubectl delete deployment servicepulse
+kubectl delete service servicepulse
+docker rm servicepulse-local
+docker image rm servicepulse:v1 servicepulse:v2
+```
